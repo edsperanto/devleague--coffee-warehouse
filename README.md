@@ -2,7 +2,7 @@
 
 ### Overview
 
-A restful API used to help serve and manage data of coffee at a warehouse. The API server will be built using Postgres for the database, and Node.js + Express for hosting. The Sequelize Node module will be used connect to Postgres via Node. 
+A restful API used to help serve and manage data of coffee warehouse. The API server will be built using Postgres for the database, and Node.js + Express for hosting. The `sequelize` Node module will be used connect to Postgres via Node.js. 
 
 ### Response format
 
