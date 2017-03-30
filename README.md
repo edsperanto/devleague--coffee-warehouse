@@ -1,6 +1,12 @@
 # Coffee Warehouse API Reference
 
-A restful API used to help serve and manage data of coffee at a warehouse. The API server will be built using postgres, node, express, and sequelize. All responses will be in JSON format. All successful requests will be answered with a JSON containing `{"success": true}`. All failed requests will be answered with a JSON containing `{"success": false}` and the key `"reason"` containing the reason (string) for the failed request.
+### Overview
+
+A restful API used to help serve and manage data of coffee at a warehouse. The API server will be built using Postgres for the database, and Node.js + Express for hosting. The Sequelize Node module will be used connect to Postgres via Node. 
+
+### Response format
+
+All responses will be in JSON format. All successful requests will be answered with a JSON containing `{"success": true}`. All failed requests will be answered with a JSON containing `{"success": false}` and the key `"reason"` containing the reason (string) for the failed request.
 
 ## Database Schema
 
@@ -93,14 +99,12 @@ A restful API used to help serve and manage data of coffee at a warehouse. The A
 
 ### Aggregate Data
 
-Aggregate data requests are obtained via the `/all` route. 
-
 | **HTTP Method** | **URL** | **Response** | **Action** |
 |---|---|---|---|---|
-| `GET` | `/all/locations` | `{"locations": [array]}` | Get list of all warehouse locations. |
-| `GET` | `/all/coffees` | `{"coffees": [array]}` | Get list of all coffee types. |
-| `GET` | `/all/orders` | `{"orders": [array]}` | Get list of all customer orders. |
-| `GET` | `/all/customers` | `{"customers": [array]}` | Get list of all customer information. |
+| `GET` | `/locations` | `{"locations": [array]}` | Get list of all warehouse locations. |
+| `GET` | `/coffees` | `{"coffees": [array]}` | Get list of all coffee types. |
+| `GET` | `/orders` | `{"orders": [array]}` | Get list of all customer orders. |
+| `GET` | `/customers` | `{"customers": [array]}` | Get list of all customer information. |
 
 ### Location Data
 
@@ -108,9 +112,9 @@ Location data requests are obtained via the `/location` route.
 
 | **HTTP Method** | **URL** | **Response** | **Action** |
 |---|---|---|---|---|
-| `GET` | `/location/:id` | `{"location": { data }}` | Get all data related to a location by its ID. |
-| `POST` | `/location/new` | `{"location": { data }}` | Creates a new location entry, and responds with an object containing all data related to the newly created location. |
-| `PUT` | `/location/:id` | `{"location": { data }}` | Change data related to a location by its ID, and responds with an object containing all data related to the edited location. |
+| `GET` | `/location/:id` | `{"location": (all fields)}` | Get all data related to a location by its ID. |
+| `POST` | `/location/new` | `{"location": (all fields)}` | Creates a new location entry, and responds with an object containing all data related to the newly created location. |
+| `PUT` | `/location/:id` | `{"location": (all fields)}` | Change data related to a location by its ID, and responds with an object containing all data related to the edited location. |
 | `DELETE` | `/location/:id` | `{"success": true}` | Delete a location. |
 
 ### Coffee Data
@@ -119,9 +123,9 @@ Coffee data requests are obtained via the `/coffee` route.
 
 | **HTTP Method** | **URL** | **Response** | **Action** |
 |---|---|---|---|---|
-| `GET` | `/coffee/:id` | `{"coffee": { data }}` | Get all data related to a coffee type by its ID. |
-| `POST` | `/coffee/new` | `{"coffee": { data }}` | Creates a new coffee type entry, and responds with an object containing all data related to the newly created coffee type. |
-| `PUT` | `/coffee/:id` | `{"coffee": { data }}` | Change data related to a coffee by its ID, and responds with an object containing all data related to the edited coffee type. |
+| `GET` | `/coffee/:id` | `{"coffee": (all fields)}` | Get all data related to a coffee type by its ID. |
+| `POST` | `/coffee/new` | `{"coffee": (all fields)}` | Creates a new coffee type entry, and responds with an object containing all data related to the newly created coffee type. |
+| `PUT` | `/coffee/:id` | `{"coffee": (all fields)}` | Change data related to a coffee by its ID, and responds with an object containing all data related to the edited coffee type. |
 | `DELETE` | `/coffee/:id` | `{"success": true}` | Delete a coffee type. |
 
 ### Order Data
@@ -130,9 +134,9 @@ Order data requests are obtained via the `/order` route.
 
 | **HTTP Method** | **URL** | **Response** | **Action** |
 |---|---|---|---|---|
-| `GET` | `/order/:id` | `{"order": { data }}` | Get all data related to an order by its ID. |
-| `POST` | `/order/new` | `{"order": { data }}` | Creates a new order entry, and responds with an object containing all data related to the newly created order. |
-| `PUT` | `/order/:id` | `{"order": { data }}` | Change data related to an order by its ID, and responds with an object containing all data related to the edited order. |
+| `GET` | `/order/:id` | `{"order": (all fields)}` | Get all data related to an order by its ID. |
+| `POST` | `/order/new` | `{"order": (all fields)}` | Creates a new order entry, and responds with an object containing all data related to the newly created order. |
+| `PUT` | `/order/:id` | `{"order": (all fields)}` | Change data related to an order by its ID, and responds with an object containing all data related to the edited order. |
 | `DELETE` | `/order/:id` | `{"success": true}` | Delete an order. |
 
 ### Customer Data
@@ -141,7 +145,7 @@ Customer data requests are obtained via the `/customer` route.
 
 | **HTTP Method** | **URL** | **Response** | **Action** |
 |---|---|---|---|---|
-| `GET` | `/customer/:id` | `{"customer": { data }}` | Get all data related to a customer by its ID. |
-| `POST` | `/customer/new` | `{"customer": { data }}` | Creates a new customer entry, and responds with an object containing all data related to the newly created customer. |
-| `PUT` | `/customer/:id` | `{"customer": { data }}` | Change data related to a customer by its ID, and responds with an object containing all data related to the edited customer. |
+| `GET` | `/customer/:id` | `{"customer": (all fields)}` | Get all data related to a customer by its ID. |
+| `POST` | `/customer/new` | `{"customer": (all fields)}` | Creates a new customer entry, and responds with an object containing all data related to the newly created customer. |
+| `PUT` | `/customer/:id` | `{"customer": (all fields)}` | Change data related to a customer by its ID, and responds with an object containing all data related to the edited customer. |
 | `DELETE` | `/customer/:id` | `{"success": true}` | Delete a customer. |
